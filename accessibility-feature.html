@@ -79,10 +79,25 @@
                 console.log('Button clicked!');
             }
             button.addEventListener('click', toggleTheme);
-            /*button.addEventListener('click', () => {
-                console.log('Button clicked!');
-            }); */
-        
+            
+            // Save a value to localStorage
+            localStorage.setItem('theme', 'dark');
+            
+            // Retrieve the value from localStorage
+            const theme = localStorage.getItem('theme');
+            console.log(`The selected theme is: ${theme}`);
+
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.getItem('dark');
+            }
+            elsif (localStorage.getItem('theme') === 'light') {
+                document.body.classList.removeItem('dark');
+            }
+            else {
+                document.body.classList.removeItem('');
+            }
+
+
         </script>
     </body>
 
