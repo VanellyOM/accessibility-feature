@@ -76,25 +76,23 @@
 
             function toggleTheme() {
                 document.body.classList.toggle('dark');
-                console.log('Button clicked!');
+                console.log(`Theme toggled. Current theme: ${document.body.classList.contains('dark') ? 'dark' : 'light'}`);
             }
             button.addEventListener('click', toggleTheme);
             
             // Save a value to localStorage
-            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
             
             // Retrieve the value from localStorage
             const theme = localStorage.getItem('theme');
             console.log(`The selected theme is: ${theme}`);
 
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.getItem('dark');
-            }
-            elsif (localStorage.getItem('theme') === 'light') {
-                document.body.classList.removeItem('dark');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
             }
             else {
-                document.body.classList.removeItem('');
+                document.body.classList.remove('dark');
             }
 
 
