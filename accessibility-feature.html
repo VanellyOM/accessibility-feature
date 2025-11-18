@@ -84,12 +84,10 @@
             localStorage.setItem('theme', 'dark');
             
             // Retrieve the value from localStorage
-            const theme = localStorage.getItem('theme');
-            console.log(`The selected theme is: ${theme}`);
-
-            const savedTheme = localStorage.getItem('theme');
             const STORAGE_KEY = 'theme';
-            let theme = savedTheme ? savedTheme : 'light';
+            const savedTheme = localStorage.getItem(STORAGE_KEY);
+            const theme = savedTheme ? savedTheme : 'light';
+            console.log(`The selected theme is: ${theme}`);
             applyTheme(theme);
             button.addEventListener('click', toggleTheme);
             function applyTheme(theme) {
