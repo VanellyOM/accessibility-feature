@@ -81,18 +81,23 @@
             button.addEventListener('click', toggleTheme);
             
             // Save a value to localStorage
-            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            localStorage.setItem('theme', 'dark');
             
             // Retrieve the value from localStorage
             const theme = localStorage.getItem('theme');
             console.log(`The selected theme is: ${theme}`);
 
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark');
-            }
-            else {
-                document.body.classList.remove('dark');
+            const STORAGE_KEY = 'theme';
+            let theme = savedTheme ? savedTheme : 'light';
+            applyTheme(theme);
+            button.addEventListener('click', toggleTheme);
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
             }
 
 
